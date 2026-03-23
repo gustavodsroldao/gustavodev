@@ -645,19 +645,24 @@ button {
     line-height: 1.6;
 }
 
-.work_full-link {
-    display: flex;
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
+.work_item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.work_item:nth-child(odd) .work_full-link {
-    flex-direction: row;
+.work_item:hover {
+    transform: translateX(5px);
 }
 
-.work_item:nth-child(even) .work_full-link {
-    flex-direction: row-reverse;
+.work_item:nth-child(even):hover {
+    transform: translateX(-5px);
+}
+
+@media screen and (max-width: 1023px) {
+    .work_item:hover,
+    .work_item:nth-child(even):hover {
+        transform: translateY(-3px);
+    }
 }
 
 .work_badge {
@@ -698,11 +703,6 @@ button {
         margin-bottom: 2.5rem;
     }
     
-    .work_full-link,
-    .work_item:nth-child(odd) .work_full-link,
-    .work_item:nth-child(even) .work_full-link {
-        flex-direction: column !important;
-    }
     
     .work_image,
     .work_content {
