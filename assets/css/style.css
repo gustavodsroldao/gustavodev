@@ -565,22 +565,14 @@ button {
     padding: 2rem 0;
 }
 
-.works_timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background-color: var(--first-color);
-    top: 0;
-}
+
 
 .work_item {
     display: flex;
     align-items: center;
     margin-bottom: 3rem;
     position: relative;
+    z-index: 2;
 }
 
 .work_item:nth-child(odd) {
@@ -594,6 +586,8 @@ button {
 .work_image {
     width: 45%;
     padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .work_image img {
@@ -614,6 +608,8 @@ button {
 .work_content {
     width: 45%;
     padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .work_item:nth-child(odd) .work_content {
@@ -676,42 +672,27 @@ button {
     font-weight: var(--font-medium);
 }
 
-/* Ponto central na timeline */
-.work_item::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 16px;
-    height: 16px;
-    background-color: var(--first-color);
-    border-radius: 50%;
-    border: 3px solid var(--container-color);
-    box-shadow: 0 0 0 3px var(--first-color);
-}
+
 
 /* Responsivo para tablet (768px - 1023px) */
 @media screen and (max-width: 1023px) {
-    .works_timeline::before {
-        left: 30px;
-    }
-    
     .work_item {
         flex-direction: column !important;
-        align-items: flex-start;
-        padding-left: 70px;
+        align-items: center;
+        padding-left: 0;
         margin-bottom: 2.5rem;
     }
-    
     
     .work_image,
     .work_content {
         width: 100%;
-        padding: 0;
+        padding: 0 1rem;
     }
     
     .work_image {
         margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
     }
     
     .work_image img {
@@ -721,25 +702,21 @@ button {
     }
     
     .work_content {
-        text-align: left !important;
-    }
-    
-    .work_item::after {
-        left: 30px;
-        width: 14px;
-        height: 14px;
+        text-align: center !important;
     }
 }
 
 /* Responsivo para mobile pequeno (até 567px) */
 @media screen and (max-width: 567px) {
-    .works_timeline::before {
-        left: 15px;
+    .work_item {
+        padding-left: 0;
+        margin-bottom: 2rem;
     }
     
-    .work_item {
-        padding-left: 45px;
-        margin-bottom: 2rem;
+    .work_image {
+        display: flex;
+        justify-content: center;
+        padding: 0 0.75rem;
     }
     
     .work_image img {
@@ -756,12 +733,6 @@ button {
     
     .work_description {
         font-size: var(--small-font-size);
-    }
-    
-    .work_item::after {
-        left: 15px;
-        width: 12px;
-        height: 12px;
     }
     
     .work_badge {
